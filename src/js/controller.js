@@ -1,15 +1,26 @@
 import * as model from './model.js';
+import totalsView from './views/totalsView.js';
 import questionView from './views/questionView.js';
-import { shuffleAnswers } from './helper.js';
+import numberOfQuestionsView from './views/numberOfQuestionsView.js';
+import { shuffleArray } from './helper.js';
 
-const controlQuestion = function (qNumber = 1) {
-	console.log('model.state.questionBank.answers', model.state.questionBank[qNumber].answers);
-	shuffleAnswers(model.state.questionBank[qNumber].answers);
-	questionView.render(model.state.questionBank);
+const controlTotals = function () {
+	totalsView.render(model.state.totals);
+};
+
+const controlQuestion = function () {
+	shuffleArray(model.state.questionBank[model.state.totals.currentQuestion - 1].answers);
+	questionView.render(model.state.questionBank[model.state.totals.currentQuestion - 1]);
+};
+
+const controlNumberOfQuestions = function () {
+	numberOfQuestionsView.render(model.state.totals);
 };
 
 const init = function () {
+	totalsView.addHandlerRender(controlTotals);
 	questionView.addHandlerRender(controlQuestion);
+	numberOfQuestionsView.addHandlerRender(controlNumberOfQuestions);
 };
 
 init();
