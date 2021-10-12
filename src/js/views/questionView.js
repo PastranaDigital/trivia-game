@@ -3,7 +3,7 @@ import View from './View.js';
 import { state } from '../model.js';
 
 class QuestionView extends View {
-	_parentElement = document.querySelector('.question');
+	_parentElement = document.querySelector('.question-block');
 	_errorMessage = 'Error. No question found';
 	_message = '';
 
@@ -13,23 +13,19 @@ class QuestionView extends View {
 
 	_generateMarkup() {
 		return `
-			<div class="question-block">
-				<h2 class="question">${this._data[0].question}</h2>
-				<ul class="answer-choices">
-					${this._data[0].answers.map(this._generateMarkupAnswer).join('')}
-				</ul>
+			<div id="question">
+				<h1>${this._data[0].question}</h1>
 			</div>
+			${this._data[0].answers.map(this._generateMarkupAnswer).join('')}
 		`;
 	}
 
 	_generateMarkupAnswer(ans) {
 		ans = ans.split('.');
 		return `
-			<li class="answer">
-				<div>
-					<p data-letter='${ans[3] ? ans[3] : 'false'}'>${ans[0]}.  ${ans[1]}<p>
-				</div>
-			</li>
+			<div class="answers">
+				<p data-letter='${ans[3] ? ans[3] : 'false'}'>${ans[0]}.  ${ans[1]}<p>
+			</div>
 		`;
 	}
 }
@@ -38,19 +34,24 @@ class QuestionView extends View {
 export default new QuestionView();
 
 /*
-questionElement.innerHTML = '';
-	//? print out the question
-	const questionMarkup = `
-		<h2>${model.data[0].question}</h2>
-	`;
-	questionElement.insertAdjacentHTML('afterbegin', questionMarkup);
-	//? print out the answer options
-	model.data[0].answers.forEach((ans) => {
-		console.log(ans);
-		ans = ans.split('.');
-		let markup = `
-			<p data-letter='${ans[3] ? ans[3] : 'false'}'>${ans[0]}.  ${ans[1]}<p>
-		`;
-		questionElement.insertAdjacentHTML('beforeend', markup);
-	});
+<div id="question">
+				<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta.</h1>
+				<!-- Question Box -->
+			</div>
+
+			<div class="answers">
+				<p>Lorem ipsum dolor sit amet</p>
+			</div>
+			<div class="answers">
+				<p>Lorem ipsum dolor sit amet</p>
+				<!-- 4 different answer boxes/ may change this later-->
+			</div>
+
+			<div class="answers2">
+				<p>Lorem ipsum dolor sit amet</p>
+			</div>
+
+			<div class="answers2">
+				<p>Lorem ipsum dolor sit amet</p>
+			</div>
 */

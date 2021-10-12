@@ -11,4 +11,5 @@ export const state = {
 			answers: ['Alpha.correct', 'Bravo', 'Charlie', 'Delta'],
 		},
 	],
+	currentAnswerChoices: [],
 };
