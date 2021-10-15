@@ -20,10 +20,10 @@ class QuestionView extends View {
 	}
 
 	_generateMarkupAnswer(ans) {
-		ans = ans.split('.');
+		ans = ans.split('@');
 		return `
 			<div class="answers">
-				<p data-letter='${ans[1] ? ans[1] : 'false'}'>${ans[0]}<p>
+				<p data-answer='${ans[1] ? ans[1] : 'false'}'>${ans[0]}<p>
 			</div>
 		`;
 	}
