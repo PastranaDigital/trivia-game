@@ -18,6 +18,7 @@ const controlNumberOfQuestions = function () {
 };
 
 const init = function () {
+	model.shuffleQuestionOrder();
 	totalsView.addHandlerRender(controlTotals);
 	questionView.addHandlerRender(controlQuestion);
 	numberOfQuestionsView.addHandlerRender(controlNumberOfQuestions);
