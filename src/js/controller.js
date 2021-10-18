@@ -22,9 +22,53 @@ const controlWelcome = function () {
 	welcomeView.render(model.state.totals);
 };
 
-const controlWelcomeClick = function (operation) {
-	console.log('clicked', operation);
-	// welcomeView.render(model.state.totals);
+const controlWelcomeClick = function (operation, inputElem) {
+	if (inputElem) {
+		let value = parseFloat(inputElem.value);
+		let step = parseFloat(inputElem.dataset.step);
+
+		if (operation === 'decrement') {
+			value -= isNaN(step) ? 1 : step;
+		} else if (operation === 'increment') {
+			value += isNaN(step) ? 1 : step;
+		}
+
+		if (inputElem.hasAttribute('min') && value < parseFloat(inputElem.min)) {
+			value = inputElem.min;
+		}
+
+		if (inputElem.hasAttribute('max') && value > parseFloat(inputElem.max)) {
+			value = inputElem.max;
+		}
+
+		if (inputElem.value !== value) {
+			welcomeView.setInputValue(inputElem, value);
+			welcomeView.setInputButtonState();
+		}
+		// console.log('New number of questions: ', value);
+
+		//? update the value inside the data with new number of questions
+		model.updateNumOfQuestions(value);
+	}
+};
+
+const controlWelcomeGoClick = function (payload) {
+	console.log(payload);
+
+	//? close modal
+	welcomeView.toggleModal();
+
+	//? render the quiz
+	renderQuiz();
+};
+
+const renderQuiz = function () {
+	// console.log(model.state);
+	model.shuffleQuestionOrder();
+
+	controlTotals();
+	controlQuestion();
+	controlNumberOfQuestions();
 };
 
 const init = function () {
@@ -32,101 +76,15 @@ const init = function () {
 	// enable active states for buttons in mobile safari
 	document.addEventListener('touchstart', function () {}, false);
 
-	model.shuffleQuestionOrder();
-
 	welcomeView.addHandlerRender(controlWelcome);
 	welcomeView.addHandlerClick(controlWelcomeClick);
-	welcomeView.addHandlerGoClick();
-	totalsView.addHandlerRender(controlTotals);
-	questionView.addHandlerRender(controlQuestion);
-	numberOfQuestionsView.addHandlerRender(controlNumberOfQuestions);
+	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
+
+	//* moved to renderQuiz function
+	// model.shuffleQuestionOrder();
+	// totalsView.addHandlerRender(controlTotals);
+	// questionView.addHandlerRender(controlQuestion);
+	// numberOfQuestionsView.addHandlerRender(controlNumberOfQuestions);
 };
-
-//! ----------------------------------------------------
-
-function handleNumberInput() {
-	setInputButtonState();
-}
-
-function handleNumberInputBlur(event) {
-	const value = event.target.value;
-
-	if (event.target.hasAttribute('min') && value < parseFloat(event.target.min)) event.target.value = event.target.min;
-
-	if (event.target.hasAttribute('max') && value > parseFloat(event.target.max)) event.target.value = event.target.max;
-}
-
-function setInputButtonState() {
-	const inputs = document.getElementsByClassName('number-input-text-box');
-
-	for (let input of inputs) {
-		if (input.id.length > 0) {
-			// during value transition the old input won't have an id
-			const value = input.value;
-			const parent = input.parentElement.parentElement;
-
-			if (parent.children[0] && input.hasAttribute('min'))
-				parent.children[0].disabled = value <= parseFloat(input.min);
-
-			if (parent.children[2] && input.hasAttribute('max'))
-				parent.children[2].disabled = value >= parseFloat(input.max);
-		}
-	}
-}
-
-function setNumber(event) {
-	let button = event.target;
-	let input = document.getElementById(button.dataset.inputId);
-
-	if (input) {
-		let value = parseFloat(input.value);
-		let step = parseFloat(input.dataset.step);
-
-		if (button.dataset.operation === 'decrement') {
-			value -= isNaN(step) ? 1 : step;
-		} else if (button.dataset.operation === 'increment') {
-			value += isNaN(step) ? 1 : step;
-		}
-
-		if (input.hasAttribute('min') && value < parseFloat(input.min)) {
-			value = input.min;
-		}
-
-		if (input.hasAttribute('max') && value > parseFloat(input.max)) {
-			value = input.max;
-		}
-
-		if (input.value !== value) {
-			setInputValue(input, value);
-			setInputButtonState();
-		}
-	}
-}
-
-function setInputValue(input, value) {
-	let newInput = input.cloneNode(true);
-	const parentBox = input.parentElement.getBoundingClientRect();
-
-	input.id = '';
-
-	newInput.value = value;
-
-	if (value > input.value) {
-		// right to left
-		input.parentElement.appendChild(newInput);
-		input.style.marginLeft = -parentBox.width + 'px';
-	} else if (value < input.value) {
-		// left to right
-		newInput.style.marginLeft = -parentBox.width + 'px';
-		input.parentElement.prepend(newInput);
-		window.setTimeout(function () {
-			newInput.style.marginLeft = 0;
-		}, 20);
-	}
-
-	window.setTimeout(function () {
-		input.parentElement.removeChild(input);
-	}, 250);
-}
 
 init();
