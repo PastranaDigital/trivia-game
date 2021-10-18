@@ -211,7 +211,7 @@ export const state = {
 		},
 		{
 			question: 'What was the first toy to be advertised on television?',
-			answers: ['Mr Potato Head@correct', 'Slinky', 'Red Rider BB Gun', 'Oscar Meyer Whistle'],
+			answers: ['Mr. Potato Head@correct', 'Slinky', 'Red Rider BB Gun', 'Oscar Meyer Whistle'],
 		},
 		{
 			question: 'Who was not one of the four main characters in the TV series "Golden Girls"?',
@@ -329,7 +329,7 @@ export const state = {
 		},
 		{
 			question: 'A group of ravens is known as?',
-			answers: ['Unkindness@correct', 'flock', 'gaggle', 'parliament'],
+			answers: ['unkindness@correct', 'flock', 'gaggle', 'parliament'],
 		},
 		{
 			question: 'How long do elephant pregnancies last?',

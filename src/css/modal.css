@@ -1,11 +1,5 @@
 @import 'variables.css';
 
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-}
-
 .modal {
 	position: fixed;
 	top: 50%;
@@ -304,6 +298,7 @@ input[type='number'] {
 	/* background-color: rgba(89, 175, 255, 1); #59afff; */
 	background: linear-gradient(150deg, #6250d1, #7038af);
 	pointer-events: none;
+	z-index: -1;
 }
 
 #overlay #title {
@@ -316,7 +311,6 @@ input[type='number'] {
 
 #overlay.active {
 	opacity: 1;
-	pointer-events: all;
 }
 
 #plus,

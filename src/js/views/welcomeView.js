@@ -14,7 +14,7 @@ class WelcomeView extends View {
 		const overlay = document.querySelector('#overlay');
 		const modal = document.querySelector('#modal');
 		// console.log(overlay.classList);
-		overlay.classList.toggle('active');
+		// overlay.classList.toggle('active');
 		modal.classList.toggle('active');
 	}
 
