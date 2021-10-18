@@ -15,7 +15,8 @@
 	border-radius: 1rem;
 	z-index: 10;
 	/* background-color: white; */
-	background: linear-gradient(rgba(69, 75, 207, 1) 14%, rgba(3, 22, 175, 1) 81%);
+	/* background: linear-gradient(rgba(69, 75, 207, 1) 14%, rgba(3, 22, 175, 1) 81%); */
+	background: white;
 	/* box-shadow: 2px 2px 8px black; */
 	box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
 	color: white;
@@ -63,10 +64,10 @@ form {
 	/* max-width: 340px; */
 
 	/* padding: 56px 48px; */
-
+	border: 2px solid #7038af;
 	border-radius: 0.75rem;
 
-	box-shadow: 0px 8px 40px rgba(128, 128, 128, 0.15);
+	/* box-shadow: 0px 8px 40px rgba(128, 128, 128, 0.15); */
 
 	display: flex;
 	flex-direction: column;
@@ -254,7 +255,7 @@ input[type='number'] {
 	/* top: 2rem; */
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.25em;
-	color: white;
+	color: #1d1e22;
 }
 
 .modal-footer {
@@ -280,10 +281,12 @@ input[type='number'] {
 	/* margin-right: 25px;
 	margin-left: 35px; */
 	/* background: linear-gradient(rgba(69, 75, 207, 1) 14%, rgba(3, 22, 175, 1) 81%); */
-	background-color: white;
+	/* background-color: white; */
+	background: linear-gradient(150deg, #6250d1, #7038af);
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
-	color: black;
+	color: white;
 	width: 30%;
 	font-size: 1.5rem;
 	font-weight: 600;
@@ -298,7 +301,8 @@ input[type='number'] {
 	right: 0;
 	bottom: 0;
 	/* background-color: rgba(0, 0, 0, 0.5); */
-	background-color: rgba(89, 175, 255, 1); /* #59afff; */
+	/* background-color: rgba(89, 175, 255, 1); #59afff; */
+	background: linear-gradient(150deg, #6250d1, #7038af);
 	pointer-events: none;
 }
 

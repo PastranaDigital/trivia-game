@@ -10,12 +10,12 @@ class WelcomeView extends View {
 		window.addEventListener('load', (e) => handler());
 	}
 
-	toggleModal() {
+	toggleActiveClass() {
 		const overlay = document.querySelector('#overlay');
 		const modal = document.querySelector('#modal');
 		// console.log(overlay.classList);
-		overlay.classList.remove('active');
-		modal.classList.remove('active');
+		overlay.classList.toggle('active');
+		modal.classList.toggle('active');
 	}
 
 	addHandlerClick(handler) {

@@ -56,7 +56,8 @@ const controlWelcomeGoClick = function (payload) {
 	console.log(payload);
 
 	//? close modal
-	welcomeView.toggleModal();
+	welcomeView.toggleActiveClass();
+	questionView.toggleActiveClass();
 
 	//? render the quiz
 	renderQuiz();

@@ -6,6 +6,11 @@ class QuestionView extends View {
 	_errorMessage = 'Error. No question found';
 	_message = '';
 
+	toggleActiveClass() {
+		const wrapper = document.querySelector('.question-wrapper');
+		wrapper.classList.toggle('active');
+	}
+
 	addHandlerRender(handler) {
 		window.addEventListener('load', (e) => handler());
 	}
@@ -13,9 +18,11 @@ class QuestionView extends View {
 	_generateMarkup() {
 		return `
 			<div id="question">
-				<h1>${this._data.question}</h1>
+				${this._data.question}
 			</div>
+			<div class="answer-wrapper">
 			${this._data.answers.map(this._generateMarkupAnswer).join('')}
+			</div>
 		`;
 	}
 
