@@ -18,8 +18,13 @@ const controlNumberOfQuestions = function () {
 	numberOfQuestionsView.render(model.state.totals);
 };
 
-const controlFrontPage = function () {
+const controlWelcome = function () {
 	welcomeView.render(model.state.totals);
+};
+
+const controlWelcomeClick = function (operation) {
+	console.log('clicked', operation);
+	// welcomeView.render(model.state.totals);
 };
 
 const init = function () {
@@ -29,14 +34,12 @@ const init = function () {
 
 	model.shuffleQuestionOrder();
 
-	welcomeView.addHandlerRender(controlFrontPage);
+	welcomeView.addHandlerRender(controlWelcome);
+	welcomeView.addHandlerClick(controlWelcomeClick);
+	welcomeView.addHandlerGoClick();
 	totalsView.addHandlerRender(controlTotals);
 	questionView.addHandlerRender(controlQuestion);
 	numberOfQuestionsView.addHandlerRender(controlNumberOfQuestions);
-
-	document.addEventListener('click', setNumber(event));
-
-	setInputButtonState();
 };
 
 //! ----------------------------------------------------
