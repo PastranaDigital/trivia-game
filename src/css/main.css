@@ -54,6 +54,11 @@
 	justify-content: center;
 }
 
+.answers:hover {
+	background: var(--color-background-gradient-2);
+	box-shadow: none;
+}
+
 .question-wrapper.active {
 	transform: translate(-50%, -50%) scale(1);
 }
