@@ -7,17 +7,6 @@
 	box-sizing: border-box;
 }
 
-/* body { */
-/* background: #59afff; #5057ff */
-/* background: linear-gradient(150deg, #6250d1, #38185e); */
-/* top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	position: fixed; */
-/* background: linear-gradient(150deg, #6250d1, #7038af); */
-/* } */
-
 #totals {
 	position: absolute;
 	top: 10px;
@@ -25,71 +14,40 @@
 	line-height: 5px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
-	color: white;
+	color: var(--color-light);
 }
 
 /* Styling of the question box */
 #question {
 	display: flex;
-	/* margin-top: 6rem; */
 	justify-content: center;
 	text-align: center;
-	/* border-radius: 1rem; */
-	/* background: #5057ff; */
 	font-family: 'Roboto', sans-serif;
 	font-size: 3rem;
 	font-weight: 600;
 	padding: 1rem 2rem 3rem;
-	color: #1d1e22;
+	color: var(--color-dark-text);
 }
-/* 
-#question > h1 {
-} */
 
 .answer-wrapper {
-	/* display: grid; */
-	/* place-items: center; */
-
-	/* width: 100%; */
-	/* float: none; */
-
-	/* makes the below in one column */
-	/* flex-direction: column; */
-	/* makes them all 4 across */
-	/* display: flex;
-	align-items: center;
-	justify-content: center; */
-
-	/* margin: 0 auto; */
-	/* align-content: center; */
-
-	/* text-align: center;
-	display: flex;
-	justify-content: space-around; */
-
 	text-align: center;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 42%);
 	justify-content: center;
-	/* grid-gap: 20px; */
 }
 
 /* Styling of the first 2 answer boxes in a line */
 .answers {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5rem;
-	color: white;
-	/* text-align: center; */
-	/* align-content: center; */
+	color: var(--color-light);
 	vertical-align: middle;
 
 	cursor: pointer;
-	/* float: left; */
 	display: flex;
-	/* width: 50%; */
-	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 4px 12px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
 	border-radius: 1rem;
-	background: linear-gradient(150deg, #6250d1, #7038af);
+	background: linear-gradient(150deg, var(--color-background-gradient-1), var(--color-background-gradient-2));
 
 	margin: 1rem;
 	padding: 1.5rem;
@@ -105,34 +63,16 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%) scale(0);
-	/*   transition: 200ms ease-in-out; */
 	border: 0;
 	border-radius: 1.5rem;
 	z-index: 1;
-	background-color: white;
+	background-color: var(--color-light);
 	max-height: 80%;
 	width: 75%;
-	/*   max-width: 80%; */
-	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 4px 12px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
 	padding: 2.5rem;
 	overflow-y: auto;
-	/*   scrollbar-width: none; */
 }
-
-/*
-.answers2 {
-	margin-top: 15px;
-	float: left;
-	width: 45%;
-	display: flex;
-	justify-content: center;
-	border: 2px ;    				Styling of the first 2 answer boxes in a line 
-	box-shadow: 2px 2px 8px black;
-	border-radius: 1em;
-	margin-right: 25px;
-	margin-left: 35px;
-}
-*/
 
 /* Styling of the question counter (ex: 1 out of 15 questions)*/
 #numofquestions {
@@ -142,7 +82,7 @@
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 	padding-top: 1rem;
-	color: white;
+	color: var(--color-light);
 	padding: 1.5rem 0;
 	position: fixed;
 	bottom: 0rem;
@@ -151,9 +91,8 @@
 	left: 0;
 }
 
+/* Supposed to change size of elements based on pixel size - not working yet */
 @media only screen and (max-width: 1250px) {
-	/* Supposed to change size of elements based on pixel size - not working yet */
-
 	.answers {
 		width: 100%;
 		margin: auto;

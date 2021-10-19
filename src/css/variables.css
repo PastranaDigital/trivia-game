@@ -1,7 +1,12 @@
 :root {
-	--color-black: #112c34;
-	--color-blue-dark: #65849a;
-	--color-mustard-light: #ede6d9;
-	--color-mustard-extra-light: #fcf9ed;
-	--color-mustard-midtone: #9c7830;
+	/* --color-background-gradient-1: #6250d1; */
+	/* --color-background-gradient-2: #7038af; */
+	--color-background-gradient-1: #5057ff;
+	--color-background-gradient-2: #371fa3;
+	--color-dark-1-rgb: 0, 0, 0;
+	--color-dark-1: #000000;
+	--color-light: #ffffff;
+	--color-dark-text: #1d1e22;
+	--color-light-text: #ffffff;
+	--box-shadow-opacity: 0.35;
 }
