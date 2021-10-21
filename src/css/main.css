@@ -1,5 +1,10 @@
-body{
-	background: #59AFFF;
+@import 'modal.css';
+@import 'variables.css';
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
 }
 
 #totals {
@@ -8,81 +13,96 @@ body{
 	right: 30px; /* Styling of the total counter */
 	line-height: 5px;
 	font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-	color: white;
+	font-size: 1rem;
+	color: var(--color-light);
 }
 
+/* Styling of the question box */
 #question {
-	font-size: 10px;
 	display: flex;
-	margin-top: 100px; /* Styling of the question box */
 	justify-content: center;
-	box-shadow: 2px 2px 8px black;
-	box-shadow: 0px 0px 10px;
-	border-radius: 10px;
-	background: #5057FF;
+	text-align: center;
 	font-family: 'Roboto', sans-serif;
-    font-size: .8em;
-	padding: 4em;
+	font-size: 3rem;
+	font-weight: 600;
+	padding: 1rem 2rem 3rem;
+	color: var(--color-dark-text);
 }
 
-#question > h1{
-	color: white;
+.answer-wrapper {
+	text-align: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 42%);
+	justify-content: center;
 }
 
+/* Styling of the first 2 answer boxes in a line */
 .answers {
-	margin-top: 30px;
-	float: left;
-	width: 45%;
-	display: flex;
-	justify-content: center; /* Styling of the first 2 answer boxes in a line */
-	box-shadow: 2px 2px 8px black;
-	border-radius: 1rem;
-	margin-right: 25px;
-	margin-left: 35px;
-    background: linear-gradient(rgba(69,75,207,1) 14%, rgba(3,22,175,1) 81%);
 	font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-	color:white;
-	padding-top: 3em;
-	padding-bottom: 3em;
-}
+	font-size: 1.5rem;
+	color: var(--color-light);
+	vertical-align: middle;
 
-/*
-.answers2 {
-	margin-top: 15px;
-	float: left;
-	width: 45%;
+	cursor: pointer;
 	display: flex;
-	justify-content: center;
-	border: 2px ;    				Styling of the first 2 answer boxes in a line 
-	box-shadow: 2px 2px 8px black;
-	border-radius: 1em;
-	margin-right: 25px;
-	margin-left: 35px;
-}
-*/
+	box-shadow: 0px 4px 12px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
+	border-radius: 1rem;
+	background: linear-gradient(150deg, var(--color-background-gradient-1), var(--color-background-gradient-2));
 
+	margin: 1rem;
+	padding: 1.5rem;
+	justify-content: center;
+}
+
+.answers:hover {
+	background: var(--color-background-gradient-2);
+	box-shadow: none;
+}
+
+.question-wrapper.active {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.question-wrapper {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	border: 0;
+	border-radius: 1.5rem;
+	z-index: 1;
+	background-color: var(--color-light);
+	max-height: 80%;
+	width: 75%;
+	box-shadow: 0px 4px 12px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
+	padding: 2.5rem;
+	overflow-y: auto;
+}
+
+/* Styling of the question counter (ex: 1 out of 15 questions)*/
 #numofquestions {
 	clear: both;
-	display: flex; /* Styling of the question counter */
+	display: flex;
 	justify-content: center;
 	font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-	color: white;
+	font-size: 1rem;
+	padding-top: 1rem;
+	color: var(--color-light);
+	padding: 1.5rem 0;
+	position: fixed;
+	bottom: 0rem;
+
+	right: 0;
+	left: 0;
 }
 
+/* Supposed to change size of elements based on pixel size - not working yet */
 @media only screen and (max-width: 1250px) {
-	/* Supposed to change size of elements based on pixel size - not working yet */
-
 	.answers {
 		width: 100%;
 		margin: auto;
-		margin-top: 1em;
-		padding-top: 1em;
-		padding-bottom: 1em;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
-
-
-
 }

@@ -3,9 +3,15 @@ import { shuffleArray } from './helper.js';
 export const shuffleQuestionOrder = function () {
 	shuffleArray(state.questionBank);
 };
+
+export const updateNumOfQuestions = function (newNumber) {
+	state.totals.totalSelectedQuestions = newNumber;
+	// console.log('state.totals.totalSelectedQuestions: ', state.totals.totalSelectedQuestions);
+};
+
 export const state = {
 	totals: {
-		correctAnswers: 3,
+		correctAnswers: 0,
 		totalSelectedQuestions: 10,
 		currentQuestion: 1,
 	},
@@ -128,7 +134,7 @@ export const state = {
 		},
 		{
 			question: 'Who is the patron saint of Ireland?',
-			answers: ['St Patrick@correct', 'St Michael', 'St Stephen', 'St John'],
+			answers: ['St. Patrick@correct', 'St. Michael', 'St. Stephen', 'St. John'],
 		},
 		{
 			question: 'Who was the first president of the United States?',
@@ -205,7 +211,7 @@ export const state = {
 		},
 		{
 			question: 'What was the first toy to be advertised on television?',
-			answers: ['Mr Potato Head@correct', 'Slinky', 'Red Rider BB Gun', 'Oscar Meyer Whistle'],
+			answers: ['Mr. Potato Head@correct', 'Slinky', 'Red Rider BB Gun', 'Oscar Meyer Whistle'],
 		},
 		{
 			question: 'Who was not one of the four main characters in the TV series "Golden Girls"?',
@@ -217,7 +223,7 @@ export const state = {
 		},
 		{
 			question: 'Who created Sherlock Holmes?',
-			answers: ['Arthur Conan Doyle@correct', 'Charles Dickens', 'William Shakespeare', 'F Scott Fitzgerald'],
+			answers: ['Arthur Conan Doyle@correct', 'Charles Dickens', 'William Shakespeare', 'F. Scott Fitzgerald'],
 		},
 		{
 			question: 'Dump, floater, and wipe are terms used in which team sport?',
@@ -323,7 +329,7 @@ export const state = {
 		},
 		{
 			question: 'A group of ravens is known as?',
-			answers: ['Unkindness@correct', 'flock', 'gaggle', 'parliament'],
+			answers: ['unkindness@correct', 'flock', 'gaggle', 'parliament'],
 		},
 		{
 			question: 'How long do elephant pregnancies last?',
