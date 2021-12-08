@@ -32,7 +32,8 @@
 .answer-wrapper {
 	text-align: center;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 42%);
+	gap: 1rem;
+	grid-template-columns: 1fr 1fr;
 	justify-content: center;
 }
 
@@ -49,7 +50,7 @@
 	border-radius: 1rem;
 	background: linear-gradient(150deg, var(--color-background-gradient-1), var(--color-background-gradient-2));
 
-	margin: 1rem;
+	/* margin: 1rem; */
 	padding: 1.5rem;
 	justify-content: center;
 }
@@ -101,7 +102,6 @@
 	.answers {
 		width: 100%;
 		margin: auto;
-		margin-top: 1rem;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 	}

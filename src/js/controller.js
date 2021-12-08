@@ -63,6 +63,11 @@ const controlWelcomeGoClick = function (payload) {
 	renderQuiz();
 };
 
+const controlQuestionClick = function (payload) {
+	// payload is the data answer value of the button pressed
+	console.log(`Answer is: ${payload}`);
+};
+
 const renderQuiz = function () {
 	// console.log(model.state);
 	model.shuffleQuestionOrder();
@@ -81,11 +86,7 @@ const init = function () {
 	welcomeView.addHandlerClick(controlWelcomeClick);
 	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
 
-	//* moved to renderQuiz function
-	// model.shuffleQuestionOrder();
-	// totalsView.addHandlerRender(controlTotals);
-	// questionView.addHandlerRender(controlQuestion);
-	// numberOfQuestionsView.addHandlerRender(controlNumberOfQuestions);
+	questionView.addHandlerQuestionClick(controlQuestionClick);
 };
 
 init();

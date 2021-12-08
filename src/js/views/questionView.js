@@ -15,6 +15,15 @@ class QuestionView extends View {
 		window.addEventListener('load', (e) => handler());
 	}
 
+	addHandlerQuestionClick(handler) {
+		this._parentElement.addEventListener('click', function (e) {
+			const btn = e.target.closest('.answers'); //? search the DOM
+			if (!btn) return;
+
+			handler(btn.children[0].dataset.answer);
+		});
+	}
+
 	_generateMarkup() {
 		return `
 			<div id="question">
@@ -30,7 +39,7 @@ class QuestionView extends View {
 		ans = ans.split('@');
 		return `
 			<div class="answers">
-				<p data-answer='${ans[1] ? ans[1] : 'false'}'>${ans[0]}<p>
+				<p data-answer='${ans[1] ? ans[1] : 'false'}'>${ans[0]}</p>
 			</div>
 		`;
 	}
