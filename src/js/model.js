@@ -9,6 +9,13 @@ export const updateNumOfQuestions = function (newNumber) {
 	// console.log('state.totals.totalSelectedQuestions: ', state.totals.totalSelectedQuestions);
 };
 
+export const updateScore = function (bool) {
+	if (bool) {
+		state.totals.correctAnswers++;
+	}
+	state.totals.currentQuestion++;
+};
+
 export const state = {
 	totals: {
 		correctAnswers: 0,

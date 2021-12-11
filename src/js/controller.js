@@ -66,6 +66,21 @@ const controlWelcomeGoClick = function (payload) {
 const controlQuestionClick = function (payload) {
 	// payload is the data answer value of the button pressed
 	console.log(`Answer is: ${payload}`);
+
+	//? handle logic for the answer
+	//? 	if it is correct, increase correctAnswers
+	//? 	else don't
+	//? 	regardless, increase currentQuestion (inside function)
+	payload === 'correct' ? model.updateScore(true) : model.updateScore(false);
+
+	//? re-render now with new data
+	totalsView.render(model.state.totals);
+	numberOfQuestionsView.render(model.state.totals);
+
+	//? render next question
+	questionView.render(model.state.questionBank[model.state.totals.currentQuestion - 1]);
+
+	//! check if done with questions
 };
 
 const renderQuiz = function () {
