@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import welcomeView from './views/welcomeView.js';
+import responseView from './views/responseView.js';
 import totalsView from './views/totalsView.js';
 import questionView from './views/questionView.js';
 import numberOfQuestionsView from './views/numberOfQuestionsView.js';
@@ -71,14 +72,23 @@ const controlQuestionClick = function (payload) {
 	//? 	if it is correct, increase correctAnswers
 	//? 	else don't
 	//? 	regardless, increase currentQuestion (inside function)
-	payload === 'correct' ? model.updateScore(true) : model.updateScore(false);
+	const response = payload === 'correct';
+	model.updateScore(response);
 
-	//? re-render now with new data
-	totalsView.render(model.state.totals);
-	numberOfQuestionsView.render(model.state.totals);
+	//? update now with new data
+	totalsView.update(model.state.totals);
+	numberOfQuestionsView.update(model.state.totals);
 
-	//? render next question
-	questionView.render(model.state.questionBank[model.state.totals.currentQuestion - 1]);
+	//? render the response to the answer selected
+	questionView.toggleActiveClass();
+	responseView.render(model.state.totals);
+	setTimeout(() => {
+		responseView.toggleActiveClass();
+		questionView.toggleActiveClass();
+	}, 1000);
+
+	//? update view with next question
+	questionView.update(model.state.questionBank[model.state.totals.currentQuestion - 1]);
 
 	//! check if done with questions
 };

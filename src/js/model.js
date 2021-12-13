@@ -13,11 +13,14 @@ export const updateScore = function (bool) {
 	if (bool) {
 		state.totals.correctAnswers++;
 	}
+	//? this will later be passed into the responseView
+	state.totals.isResponseCorrect = bool;
 	state.totals.currentQuestion++;
 };
 
 export const state = {
 	totals: {
+		isResponseCorrect: false,
 		correctAnswers: 0,
 		totalSelectedQuestions: 10,
 		currentQuestion: 1,
