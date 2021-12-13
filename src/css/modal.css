@@ -4,15 +4,24 @@
 	position: fixed;
 	top: 50%;
 	left: 50%;
+	/* margin-top: 2rem; */
 	transform: translate(-50%, -50%) scale(0);
+	/* grid-column: 2 / span 1; */
 	transition: 200ms ease-in-out;
 	border-radius: 1rem;
 	z-index: 10;
+
+	/* background: lightsteelblue; */
 	background: var(--color-light);
+
 	box-shadow: 0px 4px 12px rgba(var(--color-dark-1-rgb), var(--box-shadow-opacity));
 	color: var(--color-light);
-	width: 60%;
-	padding: 1.5rem;
+	width: 60vw;
+	padding: 3rem 1.5rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
 }
 
 .modal.active {
@@ -198,7 +207,7 @@ input[type='number'] {
 }
 
 .modal-body {
-	padding: 2rem 3rem 12rem 3rem;
+	/* padding: 0 0 12rem 0; */
 	border-radius: 1em;
 	text-align: center;
 	margin: auto;
@@ -211,13 +220,14 @@ input[type='number'] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-top: 4rem;
 }
 
 .modal-footer .start-button {
-	position: fixed;
-	bottom: 4rem;
+	/* position: fixed; */
+	/* bottom: 4rem; */
 
-	display: flex;
+	/* display: flex; */
 	justify-content: center;
 	border: 0;
 	padding: 1rem 2rem;
@@ -229,7 +239,7 @@ input[type='number'] {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 	color: var(--color-light);
-	width: 30%;
+	width: 35%;
 	font-size: 1.5rem;
 	font-weight: 600;
 }
@@ -240,6 +250,21 @@ input[type='number'] {
 }
 
 #overlay {
+	grid-column: 1 / -1;
+	/* position: fixed; */
+	/* opacity: 0;
+	transition: 200ms ease-in-out;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0; */
+	/* background: linear-gradient(150deg, var(--color-background-gradient-1), var(--color-background-gradient-2)); */
+	pointer-events: none;
+	/* z-index: -1; */
+}
+
+#response-overlay {
+	/* grid-column: 1 / -1; */
 	position: fixed;
 	opacity: 0;
 	transition: 200ms ease-in-out;
@@ -247,14 +272,18 @@ input[type='number'] {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: linear-gradient(150deg, var(--color-background-gradient-1), var(--color-background-gradient-2));
+	background: rgba(var(--color-dark-1-rgb), 0.5);
 	pointer-events: none;
-	z-index: -1;
+	z-index: 1;
+}
+
+#response-overlay.active {
+	opacity: 1;
 }
 
 #overlay #title {
 	text-align: center;
-	padding-top: 1.5rem;
+	/* padding-top: 1.5rem; */
 	color: var(--color-light);
 	font-family: 'Roboto', sans-serif;
 	font-size: 2rem;

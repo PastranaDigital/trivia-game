@@ -84,11 +84,6 @@ class WelcomeView extends View {
 
 	_generateMarkup() {
 		return `
-			<div id="overlay" class="active">
-				<div id="title">
-					<h1>Trivia Game</h1>
-				</div>
-			</div>
 			<div class="modal active" id="modal">
 				<div id="questionamt" class="modal-body">
 					<h1>How many questions for this game?</h1>
