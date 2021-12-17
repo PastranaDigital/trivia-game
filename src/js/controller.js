@@ -87,8 +87,9 @@ const controlQuestionClick = function (payload) {
 		questionView.toggleActiveClass();
 	}, 1000);
 
-	//? update view with next question
-	questionView.update(model.state.questionBank[model.state.totals.currentQuestion - 1]);
+	//? render view with next question
+	//? chose this function since it exists and shuffles answers around before render
+	controlQuestion();
 
 	//! check if done with questions
 };

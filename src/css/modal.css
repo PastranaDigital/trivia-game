@@ -50,6 +50,12 @@
 	color: var(--color-dark-text);
 }
 
+.modal-body img {
+	width: 256px;
+	pointer-events: none;
+	cursor: default;
+}
+
 form {
 	width: 15rem;
 	margin-top: 3rem;
