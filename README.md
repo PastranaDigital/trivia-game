@@ -1,5 +1,7 @@
 # trivia-game
 
+JavaScript based Trivia Game with GitHub Kanban board I created for project management of tasks with my fellow collaborator.
+
 ## Things to Learn
 - creating a quality Readme file with images and information (ex: https://github.com/Kennygunderman/snack_chat)
 - Pull requests and review
