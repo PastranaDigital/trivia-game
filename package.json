@@ -1,0 +1,28 @@
+{
+	"name": "trivia-game",
+	"version": "1.0.0",
+	"description": "- creating a quality Readme file with images and information (ex: https://github.com/Kennygunderman/snack_chat)\r - Pull requests and review\r - branch management\r - using the GitHub Kanban board for project management\r   - making user stories\r   - making feature tickets\r   - making a flowchart for UX\r   - making a wireframe for UI",
+	"default": "controller.js",
+	"scripts": {
+		"start": "parcel index.html",
+		"build": "parcel build index.html --dist-dir ./dist",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PastranaDigital/trivia-game.git"
+	},
+	"author": "Omar Pastrana",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/PastranaDigital/trivia-game/issues"
+	},
+	"homepage": "https://github.com/PastranaDigital/trivia-game#readme",
+	"devDependencies": {
+		"parcel": "^2.3.2"
+	},
+	"dependencies": {
+		"core-js": "^3.21.1",
+		"regenerator-runtime": "^0.13.9"
+	}
+}
