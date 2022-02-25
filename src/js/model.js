@@ -18,6 +18,19 @@ export const updateScore = function (bool) {
 	state.totals.currentQuestion++;
 };
 
+export const resetScore = function () {
+	//? this will later be passed into the responseView
+	state.totals.isResponseCorrect = false;
+	state.totals.correctAnswers = 0;
+	state.totals.totalSelectedQuestions = 10;
+	state.totals.currentQuestion = 1;
+};
+
+export const checkIfCompleted = function () {
+	//? check to see if quiz is completed
+	return state.totals.totalSelectedQuestions < state.totals.currentQuestion;
+};
+
 export const state = {
 	totals: {
 		isResponseCorrect: false,

@@ -3,6 +3,7 @@ import welcomeView from './views/welcomeView.js';
 import responseView from './views/responseView.js';
 import totalsView from './views/totalsView.js';
 import questionView from './views/questionView.js';
+import endView from './views/endView.js';
 import numberOfQuestionsView from './views/numberOfQuestionsView.js';
 import { shuffleArray } from './helper.js';
 
@@ -64,6 +65,17 @@ const controlWelcomeGoClick = function (payload) {
 	renderQuiz();
 };
 
+const controlResetClick = function (payload) {
+	console.log(payload);
+	window.location.reload(false);
+
+	// //? reset values in the modal
+	// model.resetScore();
+
+	// //? render the welcomeView
+	// controlWelcome();
+};
+
 const controlQuestionClick = function (payload) {
 	// payload is the data answer value of the button pressed
 	console.log(`Answer is: ${payload}`);
@@ -75,23 +87,42 @@ const controlQuestionClick = function (payload) {
 	const response = payload === 'correct';
 	model.updateScore(response);
 
-	//? update now with new data
-	totalsView.update(model.state.totals);
-	numberOfQuestionsView.update(model.state.totals);
-
-	//? render the response to the answer selected
-	questionView.toggleActiveClass();
-	responseView.render(model.state.totals);
-	setTimeout(() => {
-		responseView.toggleActiveClass();
-		questionView.toggleActiveClass();
-	}, 1000);
-
-	//? render view with next question
-	//? chose this function since it exists and shuffles answers around before render
-	controlQuestion();
-
 	//! check if done with questions
+	if (model.checkIfCompleted()) {
+		console.log('END OF GAME');
+		questionView.toggleActiveClass();
+		responseView.render(model.state.totals);
+		setTimeout(() => {
+			responseView.toggleActiveClass();
+			endView.toggleActiveClass();
+			totalsView.update(model.state.totals);
+			// totalsView.toggleActiveClass();
+
+			// numberOfQuestionsView.toggleActiveClass();
+			endView.render(model.state.totals);
+		}, 1500);
+	} else {
+		//? render the response to the answer selected
+		questionView.toggleActiveClass();
+		responseView.render(model.state.totals);
+		setTimeout(() => {
+			responseView.toggleActiveClass();
+			questionView.toggleActiveClass();
+		}, 1500);
+
+		//? update now with new data
+		totalsView.update(model.state.totals);
+		numberOfQuestionsView.update(model.state.totals);
+
+		//? render view with next question
+		//? chose this function since it exists and shuffles answers around before render
+		controlQuestion();
+		// model.checkIfCompleted() ? console.log('END OF GAME') : controlQuestion();
+
+		//! check if done with questions
+		// if (model.state.totals) endView.render();
+		// model.checkIfCompleted() ? console.log('END OF GAME') : console.log('NOT END OF GAME');
+	}
 };
 
 const renderQuiz = function () {
@@ -113,6 +144,7 @@ const init = function () {
 	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
 
 	questionView.addHandlerQuestionClick(controlQuestionClick);
+	endView.addHandlerResetClick(controlResetClick);
 };
 
 init();

@@ -6,6 +6,11 @@ class NumberOfQuestionsView extends View {
 	_errorMessage = 'Error.';
 	_message = '';
 
+	toggleActiveClass() {
+		const wrapper = document.querySelector('#numofquestions');
+		wrapper.classList.toggle('active');
+	}
+
 	addHandlerRender(handler) {
 		window.addEventListener('load', (e) => handler(0));
 	}

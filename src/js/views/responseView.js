@@ -15,6 +15,7 @@ class ResponseView extends View {
 	toggleActiveClass() {
 		const overlay = document.querySelector('#response-overlay');
 		const modal = document.querySelector('#modal');
+		// if (!overlay) return;
 		overlay.classList.toggle('active');
 		modal.classList.toggle('active');
 	}

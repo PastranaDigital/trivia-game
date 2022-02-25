@@ -229,7 +229,8 @@ input[type='number'] {
 	padding-top: 4rem;
 }
 
-.modal-footer .start-button {
+.modal-footer .start-button,
+.reset-button {
 	/* position: fixed; */
 	/* bottom: 4rem; */
 
@@ -250,7 +251,26 @@ input[type='number'] {
 	font-weight: 600;
 }
 
-.start-button:hover {
+.final-score-wrapper {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 7rem;
+	font-weight: 600;
+	padding: 0;
+	color: var(--color-background-gradient-2);
+}
+
+.reset-wrapper {
+	width: 100%;
+}
+
+.reset-button {
+	margin: 2rem auto 0;
+	width: 100%;
+}
+
+.start-button:hover,
+.reset-button:hover {
 	background: var(--color-background-gradient-2);
 	box-shadow: none;
 }
