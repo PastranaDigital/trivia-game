@@ -131,7 +131,31 @@ body {
 }
 
 /* Supposed to change size of elements based on pixel size - not working yet */
-@media only screen and (max-width: 1250px) {
+@media (max-device-width: 500px) {
+	#overlay #title {
+		font-size: 3rem;
+	}
+
+	#question {
+		font-size: 3.5rem;
+	}
+
+	.modal-body {
+		font-size: 2.5rem;
+	}
+
+	.question-block #question {
+		font-size: 5rem;
+	}
+
+	.answer-wrapper {
+		grid-template-columns: 1fr;
+	}
+
+	.answer-wrapper p {
+		font-size: 2.5rem;
+	}
+
 	.answers {
 		width: 100%;
 		height: 100%;
@@ -139,5 +163,22 @@ body {
 		margin: auto;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
+	}
+
+	.reset-button,
+	.modal-footer .start-button {
+		width: 80%;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		font-size: 2.5rem;
+	}
+
+	.final-score-wrapper {
+		font-size: 10rem;
+	}
+
+	#numofquestions,
+	#totals {
+		font-size: 2rem;
 	}
 }
