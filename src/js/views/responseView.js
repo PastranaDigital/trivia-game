@@ -15,8 +15,19 @@ class ResponseView extends View {
 	toggleActiveClass() {
 		const overlay = document.querySelector('#response-overlay');
 		const modal = document.querySelector('#modal');
+		// if (!overlay) return;
 		overlay.classList.toggle('active');
 		modal.classList.toggle('active');
+	}
+
+	addHandlerResetClick(handler) {
+		this._parentElement.addEventListener('click', function (e) {
+			const btn = e.target.closest('.reset-button'); //? search the DOM
+			if (!btn) return;
+
+			// console.log('reseting values...');
+			handler('reseting values...');
+		});
 	}
 
 	_generateMarkup() {

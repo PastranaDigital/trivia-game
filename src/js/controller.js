@@ -64,6 +64,17 @@ const controlWelcomeGoClick = function (payload) {
 	renderQuiz();
 };
 
+const controlResetClick = function (payload) {
+	console.log(payload);
+	window.location.reload(false);
+
+	//? reset values in the modal
+	model.resetScore();
+
+	//? render the welcomeView
+	controlWelcome();
+};
+
 const controlQuestionClick = function (payload) {
 	// payload is the data answer value of the button pressed
 	console.log(`Answer is: ${payload}`);
@@ -85,7 +96,7 @@ const controlQuestionClick = function (payload) {
 	setTimeout(() => {
 		responseView.toggleActiveClass();
 		questionView.toggleActiveClass();
-	}, 1000);
+	}, 3000);
 
 	//? render view with next question
 	//? chose this function since it exists and shuffles answers around before render
@@ -113,6 +124,7 @@ const init = function () {
 	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
 
 	questionView.addHandlerQuestionClick(controlQuestionClick);
+	responseView.addHandlerResetClick(controlResetClick);
 };
 
 init();
