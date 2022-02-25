@@ -251,7 +251,21 @@ input[type='number'] {
 	font-weight: 600;
 }
 
+.final-score-wrapper {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: 7rem;
+	font-weight: 600;
+	padding: 0;
+	color: var(--color-background-gradient-2);
+}
+
+.reset-wrapper {
+	width: 100%;
+}
+
 .reset-button {
+	margin: 2rem auto 0;
 	width: 100%;
 }
 

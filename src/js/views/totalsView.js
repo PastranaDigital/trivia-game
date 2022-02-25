@@ -6,6 +6,11 @@ class TotalsView extends View {
 	_errorMessage = 'Error. No totals found';
 	_message = '';
 
+	toggleActiveClass() {
+		const wrapper = document.querySelector('#totals');
+		wrapper.classList.toggle('active');
+	}
+
 	addHandlerRender(handler) {
 		window.addEventListener('load', (e) => handler(0));
 	}

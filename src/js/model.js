@@ -28,7 +28,7 @@ export const resetScore = function () {
 
 export const checkIfCompleted = function () {
 	//? check to see if quiz is completed
-	return state.totals.totalSelectedQuestions > state.totals.currentQuestion;
+	return state.totals.totalSelectedQuestions < state.totals.currentQuestion;
 };
 
 export const state = {

@@ -20,16 +20,6 @@ class ResponseView extends View {
 		modal.classList.toggle('active');
 	}
 
-	addHandlerResetClick(handler) {
-		this._parentElement.addEventListener('click', function (e) {
-			const btn = e.target.closest('.reset-button'); //? search the DOM
-			if (!btn) return;
-
-			// console.log('reseting values...');
-			handler('reseting values...');
-		});
-	}
-
 	_generateMarkup() {
 		return `
 			<div id="response-overlay" class="active"></div>
