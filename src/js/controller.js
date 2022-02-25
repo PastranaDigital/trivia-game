@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import welcomeView from './views/welcomeView.js';
+import responseView from './views/responseView.js';
 import totalsView from './views/totalsView.js';
 import questionView from './views/questionView.js';
 import numberOfQuestionsView from './views/numberOfQuestionsView.js';
@@ -63,6 +64,36 @@ const controlWelcomeGoClick = function (payload) {
 	renderQuiz();
 };
 
+const controlQuestionClick = function (payload) {
+	// payload is the data answer value of the button pressed
+	console.log(`Answer is: ${payload}`);
+
+	//? handle logic for the answer
+	//? 	if it is correct, increase correctAnswers
+	//? 	else don't
+	//? 	regardless, increase currentQuestion (inside function)
+	const response = payload === 'correct';
+	model.updateScore(response);
+
+	//? update now with new data
+	totalsView.update(model.state.totals);
+	numberOfQuestionsView.update(model.state.totals);
+
+	//? render the response to the answer selected
+	questionView.toggleActiveClass();
+	responseView.render(model.state.totals);
+	setTimeout(() => {
+		responseView.toggleActiveClass();
+		questionView.toggleActiveClass();
+	}, 1000);
+
+	//? render view with next question
+	//? chose this function since it exists and shuffles answers around before render
+	controlQuestion();
+
+	//! check if done with questions
+};
+
 const renderQuiz = function () {
 	// console.log(model.state);
 	model.shuffleQuestionOrder();
@@ -81,11 +112,7 @@ const init = function () {
 	welcomeView.addHandlerClick(controlWelcomeClick);
 	welcomeView.addHandlerGoClick(controlWelcomeGoClick);
 
-	//* moved to renderQuiz function
-	// model.shuffleQuestionOrder();
-	// totalsView.addHandlerRender(controlTotals);
-	// questionView.addHandlerRender(controlQuestion);
-	// numberOfQuestionsView.addHandlerRender(controlNumberOfQuestions);
+	questionView.addHandlerQuestionClick(controlQuestionClick);
 };
 
 init();
